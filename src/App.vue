@@ -7,8 +7,8 @@
   ]">
     <!-- Toast Notification -->
     <div v-if="showToast"
-      class="fixed top-1 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-green-600 to-blue-600 text-white px-6 py-3 rounded-lg shadow-lg transition-all duration-300 z-50"
-      :class="{ 'opacity-0 translate-y-2': isToastFading }">
+         class="fixed top-1 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-green-600 to-blue-600 text-white px-6 py-3 rounded-lg shadow-lg transition-all duration-300 z-50"
+         :class="{ 'opacity-0 translate-y-2': isToastFading }">
       {{ toastMessage }}
     </div>
 
@@ -48,7 +48,7 @@
               </select>
               <span class="absolute left-2.5 top-1/2 -translate-y-1/2 text-blue-500">◉</span>
               <span class="absolute right-2 top-1/2 -translate-y-1/2 pointer-events-none"
-                :class="isDarkMode ? 'text-gray-400' : 'text-gray-600'">
+                    :class="isDarkMode ? 'text-gray-400' : 'text-gray-600'">
                 ▼
               </span>
             </div>
@@ -95,19 +95,19 @@
           <!-- 搜索框部分 -->
           <div class="relative flex-1">
             <div class="absolute inset-y-0 left-4 flex items-center pointer-events-none">
-              <font-awesome-icon icon="search" />
+              <font-awesome-icon icon="search"/>
             </div>
             <input v-model="searchQuery" @focus="isSearchFocused = true" @blur="isSearchFocused = false"
-              @keyup.enter="searchMusic" :class="[
+                   @keyup.enter="searchMusic" :class="[
                 'w-full pl-12 pr-4 py-3 rounded-xl transition-all duration-300',
                 'focus:ring-2 focus:ring-blue-500 focus:outline-none',
                 isDarkMode ? 'bg-gray-800/50 focus:bg-gray-800/80' : 'bg-white/50 focus:bg-white/80',
                 'backdrop-blur'
-              ]" placeholder="搜索音乐..." />
+              ]" placeholder="搜索音乐..."/>
             <button @click="searchMusic"
-              class="absolute right-2 top-1/2 -translate-y-1/2 px-6 py-2 bg-blue-600 rounded-lg hover:bg-blue-700 transition flex items-center gap-2 text-white">
+                    class="absolute right-2 top-1/2 -translate-y-1/2 px-6 py-2 bg-blue-600 rounded-lg hover:bg-blue-700 transition flex items-center gap-2 text-white">
               <span class="hidden md:inline">搜索</span>
-              <span><font-awesome-icon icon="search" /></span>
+              <span><font-awesome-icon icon="search"/></span>
             </button>
           </div>
 
@@ -131,7 +131,7 @@
               </select>
               <span class="absolute left-2.5 top-1/2 -translate-y-1/2 text-blue-500">♫</span>
               <span class="absolute right-2 top-1/2 -translate-y-1/2 pointer-events-none"
-                :class="isDarkMode ? 'text-gray-400' : 'text-gray-600'">
+                    :class="isDarkMode ? 'text-gray-400' : 'text-gray-600'">
                 ▼
               </span>
             </div>
@@ -163,10 +163,10 @@
         ]">
           <div class="relative">
             <!-- 将点击事件绑定到 img 元素 -->
-            <img :src="song.cover" class="w-16 h-16 rounded-lg shadow-lg object-cover cursor-pointer" :alt="song.song" />
+            <img :src="song.cover" class="w-16 h-16 rounded-lg shadow-lg object-cover cursor-pointer" :alt="song.song"/>
             <div @click="playSong(song)"
-              class="absolute inset-0 bg-black/40 group-hover:bg-black/20 rounded-lg flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all">
-              <span class="text-2xl"><font-awesome-icon icon="play" /></span>
+                 class="absolute inset-0 bg-black/40 group-hover:bg-black/20 rounded-lg flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all">
+              <span class="text-2xl"><font-awesome-icon icon="play"/></span>
             </div>
           </div>
           <div class="flex-1 min-w-0">
@@ -178,18 +178,18 @@
           </div>
           <div class="flex gap-2 opacity-0 group-hover:opacity-100 transition-all">
             <button @click.stop="addToPlaylist(song)"
-              class="px-4 py-2 bg-blue-600/20 rounded hover:bg-blue-600/40 transition">
+                    class="px-4 py-2 bg-blue-600/20 rounded hover:bg-blue-600/40 transition">
               添加到列表
             </button>
             <button @click.stop="downloadSong(song)"
-              class="px-4 py-2 bg-purple-600/20 rounded hover:bg-purple-600/40 transition">
+                    class="px-4 py-2 bg-purple-600/20 rounded hover:bg-purple-600/40 transition">
               下载
             </button>
           </div>
 
           <!-- 正在播放标识 -->
           <div v-if="currentSong?.id === song.id"
-            class="absolute right-2 top-2 text-xs px-2 py-1 rounded-full bg-blue-500 text-white">
+               class="absolute right-2 top-2 text-xs px-2 py-1 rounded-full bg-blue-500 text-white">
             正在播放
           </div>
         </div>
@@ -198,7 +198,7 @@
 
       <!-- 侧边播放列表 -->
       <div class="fixed top-0 right-0 bottom-0 w-full md:w-96 transform transition-all duration-300 ease-in-out z-50"
-        :class="[
+           :class="[
           showPlaylist ? 'translate-x-0' : 'translate-x-full',
           isDarkMode
             ? 'bg-gray-800/95 backdrop-blur border-l border-gray-700'
@@ -215,11 +215,11 @@
             </h2>
             <div class="flex gap-2">
               <button @click="downloadPlaylist" v-if="playlist.length > 0"
-                class="text-sm px-3 py-1 bg-purple-600/20 rounded hover:bg-purple-600/40 transition">
+                      class="text-sm px-3 py-1 bg-purple-600/20 rounded hover:bg-purple-600/40 transition">
                 下载全部
               </button>
               <button @click="clearPlaylist" v-if="playlist.length > 0"
-                class="text-sm px-3 py-1 bg-red-600/20 rounded hover:bg-red-600/40 transition">
+                      class="text-sm px-3 py-1 bg-red-600/20 rounded hover:bg-red-600/40 transition">
                 清空
               </button>
               <button @click="togglePlaylistView" class="text-2xl">&times;</button>
@@ -227,8 +227,8 @@
           </div>
           <!-- 可视化区域 -->
           <div v-if="currentSong"
-            class="mb-4 aspect-video rounded-lg overflow-hidden bg-gradient-to-br from-blue-500 to-purple-500"
-            ref="visualizer"></div>
+               class="mb-4 aspect-video rounded-lg overflow-hidden bg-gradient-to-br from-blue-500 to-purple-500"
+               ref="visualizer"></div>
           <div class="flex-1 overflow-y-auto">
             <div class="space-y-2">
               <div v-for="(song, index) in playlist" :key="song.id" :class="[
@@ -242,19 +242,25 @@
                     : 'hover:bg-white/50'
               ]">
                 <span class="w-6 text-center text-sm text-gray-400">{{ index + 1 }}</span>
-                <img :src="song.cover" class="w-10 h-10 rounded-lg object-cover" :alt="song.song" />
+                <img :src="song.cover" class="w-10 h-10 rounded-lg object-cover" :alt="song.song"/>
                 <div class="flex-1 min-w-0">
                   <h3 class="font-semibold truncate">{{ song.song }}</h3>
                   <p class="text-gray-400 text-sm truncate">{{ song.singer }}</p>
                   <p class="text-gray-400 text-sm truncate">来源：{{ song.uname }}</p>
                 </div>
                 <div class="flex gap-1">
-                  <button @click="playSong(song)" class="p-2 hover:text-blue-400 transition"><font-awesome-icon
-                      icon="play" /></button>
-                  <button @click="downloadSong(song)" class="p-2 hover:text-purple-400 transition"><font-awesome-icon
-                      icon="download" /></button>
-                  <button @click="removeFromPlaylist(index)" class="p-2 hover:text-red-400 transition"><font-awesome-icon
-                      icon="trash" /></button>
+                  <button @click="playSong(song)" class="p-2 hover:text-blue-400 transition">
+                    <font-awesome-icon
+                      icon="play"/>
+                  </button>
+                  <button @click="downloadSong(song)" class="p-2 hover:text-purple-400 transition">
+                    <font-awesome-icon
+                      icon="download"/>
+                  </button>
+                  <button @click="removeFromPlaylist(index)" class="p-2 hover:text-red-400 transition">
+                    <font-awesome-icon
+                      icon="trash"/>
+                  </button>
                 </div>
               </div>
             </div>
@@ -272,8 +278,8 @@
       <div class="fixed bottom-0 left-0 right-0  w-full transition-all duration-300 z-30">
         <!-- 歌曲播放页 -->
         <div style="height: 100vh;"
-          class="flex flex-col items-center justify-center absolute bottom-0 left-0 right-0 w-full transition-all duration-300 z-30 px-4"
-          :class="[
+             class="flex flex-col items-center justify-center absolute bottom-0 left-0 right-0 w-full transition-all duration-300 z-30 px-4"
+             :class="[
             { 'translate-y-full': !isDetail },
             isDarkMode
               ? 'bg-gray-900/95 backdrop-blur border-t border-gray-800'
@@ -285,7 +291,7 @@
             <img v-if="currentSong?.cover" :src="currentSong.cover" :class="[
               'absolute inset-0 w-full h-full rounded-full object-cover bg-center shadow-xl',
               isPlaying ? 'animate-spin-slow' : ''
-            ]" :alt="currentSong?.song" style="object-fit: cover;" />
+            ]" :alt="currentSong?.song" style="object-fit: cover;"/>
             <div class="absolute inset-0 rounded-full -z-10" :class="isDarkMode ? 'bg-gray-800' : 'bg-gray-100'"></div>
           </div>
 
@@ -297,7 +303,7 @@
 
           <!-- 歌词显示区域 - 修复了横向滚动问题 -->
           <div class="w-full max-w-md h-48 overflow-hidden relative"
-            :class="isDarkMode ? 'text-gray-300' : 'text-gray-700'">
+               :class="isDarkMode ? 'text-gray-300' : 'text-gray-700'">
             <div class="absolute inset-0 flex items-center pointer-events-none z-20">
               <div class="w-full h-8 bg-gradient-to-b from-current to-transparent opacity-10"></div>
             </div>
@@ -331,7 +337,7 @@
             <div class="relative h-1 bg-gray-700">
               <div class="absolute h-full bg-blue-600" :style="{ width: `${progress}%` }"></div>
               <input type="range" v-model="currentTime" min="0" :max="duration" step="1"
-                class="absolute w-full h-full opacity-0 cursor-pointer" @input="seekTo" />
+                     class="absolute w-full h-full opacity-0 cursor-pointer" @input="seekTo"/>
             </div>
           </div>
 
@@ -347,7 +353,7 @@
 
               <div class="flex items-center gap-1 text-sm text-gray-400">
                 <div @click="toggleDetail" style="cursor: pointer; display: inline-flex; align-items: center;">
-                  <font-awesome-icon :icon="isDetail ? 'angle-down' : 'angle-up'" />
+                  <font-awesome-icon :icon="isDetail ? 'angle-down' : 'angle-up'"/>
                   <!-- <span style="margin-left: 8px;">{{ isDetail ? '折叠' : '展开' }}</span> -->
                 </div>
               </div>
@@ -359,32 +365,32 @@
 
               <div class="flex items-center gap-4">
                 <button @click="toggleShuffle" :class="{ 'text-blue-500': isShuffleMode }"
-                  class="hover:text-blue-400 transition">
-                  <font-awesome-icon icon="random" />
+                        class="hover:text-blue-400 transition">
+                  <font-awesome-icon icon="random"/>
                 </button>
                 <button @click="previousSong" class="hover:text-blue-400 transition">
-                  <font-awesome-icon icon="step-backward" />
+                  <font-awesome-icon icon="step-backward"/>
                 </button>
                 <button @click="togglePlay"
-                  class="w-10 h-10 flex items-center justify-center rounded-full bg-blue-600 hover:bg-blue-700 transition">
-                  <font-awesome-icon v-if="isPlaying" icon="pause" />
-                  <font-awesome-icon v-else icon="play" />
+                        class="w-10 h-10 flex items-center justify-center rounded-full bg-blue-600 hover:bg-blue-700 transition">
+                  <font-awesome-icon v-if="isPlaying" icon="pause"/>
+                  <font-awesome-icon v-else icon="play"/>
                 </button>
                 <button @click="nextSong" class="hover:text-blue-400 transition">
-                  <font-awesome-icon icon="step-forward" />
+                  <font-awesome-icon icon="step-forward"/>
                 </button>
                 <button @click="toggleRepeat" :class="{ 'text-blue-500': isRepeatMode }"
-                  class="hover:text-blue-400 transition">
-                  <font-awesome-icon icon="redo" />
+                        class="hover:text-blue-400 transition">
+                  <font-awesome-icon icon="redo"/>
                 </button>
               </div>
 
               <div class="flex items-center gap-2">
                 <button class="hover:text-blue-400 transition">
-                  <font-awesome-icon v-if="volume == 0" icon="volume-mute" class="text-xl" />
-                  <font-awesome-icon v-else icon="volume-up" class="text-xl" />
+                  <font-awesome-icon v-if="volume == 0" icon="volume-mute" class="text-xl"/>
+                  <font-awesome-icon v-else icon="volume-up" class="text-xl"/>
                 </button>
-                <input type="range" v-model="volume" min="0" max="1" step="0.1" class="w-16 accent-blue-600" />
+                <input type="range" v-model="volume" min="0" max="1" step="0.1" class="w-16 accent-blue-600"/>
               </div>
             </div>
           </div>
@@ -394,7 +400,7 @@
 
     <!-- Download Progress Modal -->
     <div v-if="showDownloadProgress"
-      class="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-50">
+         class="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-50">
       <div class="bg-gray-800 p-6 rounded-lg max-w-md w-full mx-4 border border-gray-700">
         <h3 class="text-lg font-semibold mb-4">
           {{ isDownloadingPlaylist ? '批量下载中' : '下载中' }}
@@ -436,7 +442,7 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted, onUnmounted, watch } from 'vue';
+import {ref, computed, onMounted, onUnmounted, watch} from 'vue';
 
 const QQList = ref(false)
 
@@ -488,12 +494,12 @@ const downloadedCount = ref(0);
 const totalDownloads = ref(0);
 const playlistProgress = ref(0);
 const audioQualities = [
-  { label: '试听', value: 1 },
-  { label: '有损', value: 3 },
-  { label: '标准', value: 7 },
-  { label: 'HQ高音质', value: 9 },
-  { label: 'SQ无损音质', value: 13 },
-  { label: 'Hi-Res音质', value: 14 }
+  {label: '试听', value: 1},
+  {label: '有损', value: 3},
+  {label: '标准', value: 7},
+  {label: 'HQ高音质', value: 9},
+  {label: 'SQ无损音质', value: 13},
+  {label: 'Hi-Res音质', value: 14}
 ];
 
 // 用来存储选择的音质
@@ -501,8 +507,8 @@ const selectedQuality = ref(audioQualities[5].value);  // 默认选择 Hi-Res �
 
 // 音源选项
 const musicSources = [
-  { label: 'QQ音乐', value: 'qqdg/?word' },
-  { label: '网易云音乐', value: 'wydg/?msg' }
+  {label: 'QQ音乐', value: 'qqdg/?word'},
+  {label: '网易云音乐', value: 'wydg/?msg'}
 ];
 
 // 默认选择 QQ音乐
@@ -511,23 +517,22 @@ const selectedSource = ref(musicSources[0].value);
 watch(selectedSource, (newSource) => {
 
   searchResults.value = []; // 注意这里使用 .value
-  if(QQList.value){
+  if (QQList.value) {
     handleRankSelect(selectedRank.value)
+  } else {
+    searchResults.value = []
   }
-  else{
-    searchResults.value =[]
-  }
-  
+
 
   showToastMessage(`已切换到${newSource.includes('qqdg') ? 'QQ音乐' : '网易云音乐'}`);
 });
 
 // 排行榜选项
 const rankOptions = [
-  { value: 'soaring', label: '飙升榜' },
-  { value: 'hot', label: '热歌榜' },
-  { value: 'new', label: '新歌榜' },
-  { value: 'popular', label: '流行榜' }
+  {value: 'soaring', label: '飙升榜'},
+  {value: 'hot', label: '热歌榜'},
+  {value: 'new', label: '新歌榜'},
+  {value: 'popular', label: '流行榜'}
 ]
 
 // 默认选中飙升榜
@@ -602,9 +607,6 @@ const handleRankSelect = (rank) => {
       break
   }
 }
-
-
-
 
 
 const ensureHttps = (url) => {
@@ -713,8 +715,7 @@ const downloadSong = async (song) => {
     let secureUrl;
     if (data.data?.url) {
       secureUrl = ensureHttps(data.data.url);
-    }
-    else {
+    } else {
       secureUrl = ensureHttps(data.mp3);
     }
 
@@ -732,7 +733,7 @@ const downloadSong = async (song) => {
 
     // 读取流
     while (true) {
-      const { done, value } = await reader.read();
+      const {done, value} = await reader.read();
       if (done) break;
 
       chunks.push(value);
@@ -743,10 +744,14 @@ const downloadSong = async (song) => {
         downloadProgress.value = (receivedSize / totalSize) * 100;
       }
     }
+    //通过链接获取文件后缀名
+    const match = secureUrl.match(/\.([a-zA-Z0-9]+)(?=\?)/);
+    const fileExtension = match ? match[1] : "mp3";
+    console.log("歌曲后缀：", fileExtension)
 
     // 合并数据并创建 blob
-    const blob = new Blob(chunks, { type: 'audio/mpeg' });
-    const filename = `${song.song} - ${song.singer}.mp3`.replace(/[<>:"/\\|?*]/g, '');
+    const blob = new Blob(chunks, {type: 'audio/mpeg'});
+    const filename = `${song.song} - ${song.singer}.${fileExtension}`.replace(/[<>:"/\\|?*]/g, '');
 
     // 使用传统下载方式
     await downloadFile(blob, filename);
@@ -807,8 +812,7 @@ const downloadPlaylist = async () => {
         let secureUrl;
         if (data.data?.url) {
           secureUrl = ensureHttps(data.data.url);
-        }
-        else {
+        } else {
           secureUrl = ensureHttps(data.mp3);
         }
 
@@ -827,7 +831,7 @@ const downloadPlaylist = async () => {
 
         // 读取流并更新进度
         while (true) {
-          const { done, value } = await reader.read();
+          const {done, value} = await reader.read();
           if (done) break;
 
           chunks.push(value);
@@ -838,10 +842,15 @@ const downloadPlaylist = async () => {
             downloadProgress.value = (receivedSize / totalSize) * 100;
           }
         }
+        //通过链接获取文件后缀名
+        const match = secureUrl.match(/\.([a-zA-Z0-9]+)(?=\?)/);
+        const fileExtension = match ? match[1] : "mp3";
+        console.log("歌曲后缀：", fileExtension)
+
 
         // 合并数据并创建 blob
-        const blob = new Blob(chunks, { type: 'audio/mpeg' });
-        const filename = `${song.song} - ${song.singer}.mp3`.replace(/[<>:"/\\|?*]/g, '');
+        const blob = new Blob(chunks, {type: 'audio/mpeg'});
+        const filename = `${song.song} - ${song.singer}.${fileExtension}`.replace(/[<>:"/\\|?*]/g, '');
 
         // 使用传统下载方式
         await downloadFile(blob, filename);
@@ -1038,9 +1047,7 @@ const playSong = async (song) => {
       isPlaying.value = true;
       musicName.value = song.song;
 
-    }
-
-    else if (data?.mp3) {
+    } else if (data?.mp3) {
       song.lyrics = data?.lyric || [{
         "name": "暂无歌词",
         "time": "00:00.000"
@@ -1055,9 +1062,7 @@ const playSong = async (song) => {
       isPlaying.value = true;
       musicName.value = song.song;
 
-    }
-
-    else {
+    } else {
       showToastMessage('播放链接为空，请尝试刷新页面，或重新进行搜索');
     }
 
